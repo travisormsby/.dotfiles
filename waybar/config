@@ -1,0 +1,60 @@
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 45, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "temperature", "custom/clock"],
+    // Modules configuration
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false,
+	"on-click": "foot -e sh -c 'htop -s PERCENT_CPU'"
+    },
+    "memory": {
+        "format": "{}% ",
+	"on-click": "foot -e sh -c 'htop -s PERCENT_MEM'"
+    },
+    "temperature": {
+        "thermal-zone": 0,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click-right": "amixer set Capture toggle",
+        "on-click": "pgrep pavucontrol && killall pavucontrol || pavucontrol"
+    },
+    // Clock module is broken on my install, need custom one
+    "custom/clock": {
+        "exec": "date +'%l:%M %P'",
+        "interval": 60,
+        "tooltip": false
+    }
+}
+

@@ -1,0 +1,32 @@
+@import "/home/travis/.cache/wal/colors-waybar.css";
+
+*{
+	border-radius: 6px;
+	border: none;
+}
+
+window {
+	font-size: 24px;
+	background-color: @background;
+	color: @foreground;
+	font-weight: bold;
+}
+
+
+#entry:selected {
+	background-color: @color1;
+}
+
+#text:selected {
+	color: @background;
+}
+
+#input{
+	background-color: @background;
+	color: @foreground;
+}
+
+image {
+	margin-left: .25em;
+	margin-right: .25em;
+}
