@@ -1,13 +1,12 @@
 #! /bin/bash
 
-# Back up existing files and symlinks to repo files
+# Back up existing files and create symlink to repo files
 # .bashrc first
 mv --backup=numbered ~/.bashrc ~/.bashrc.back
 ln -s $(pwd)/.bashrc ~/.bashrc
 
-# then all .config files
-for FILE in .config/*; do
-    echo ~/$FILE
-    mv --backup=numbered ~/$FILE ~/$FILE.back
-    ln -s $(pwd)/$FILE ~/$FILE
+# then all folders in .config
+for f in .config/*; do
+    mv --backup=numbered ~/$f ~/$f.back
+    ln -s $(pwd)/$f ~/$f
 done
