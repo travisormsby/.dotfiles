@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Takes a single argurment, which is a path to an image
 

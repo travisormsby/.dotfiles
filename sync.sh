@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Back up existing files and create symlink to repo files
 # .bashrc first
