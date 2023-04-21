@@ -6,13 +6,6 @@
 * Terminal: foot
 * Theme generator: pywal
 
-Mostly tweaks on stock configs.  
+Run sync.sh to symlink the files in this repo to the correct location and set the correct file paths for the import statements in .config/wofi/styles.css and .config/waybar/styles.css. Running sync.sh with the -b option will create backups of existing files.
 
-Run sync.sh to backup existing files and symlink the files in this repo to the correct location.
-
-apply-colors.sh will apply the colors from an image to the terminal, sway, wofi, waybar, and Chromium. This script relies on [pywal](https://github.com/dylanaraps/pywal) and [ChromiumPywal](https://github.com/metafates/ChromiumPywal). It also has some hard-coded filepaths in the following locations that you should manually change:
-
-* Import statments at the top of .config/waybar/style.css and .config/wofi/style.css
-* Location of ChromiumPywal/generate-theme.sh at the end of apply-colors.sh
-
-It is recommended to install pywal in a Python virtual environment to avoid polluting the global Python installation. If you do, make sure you run apply-colors.sh while that environment is activated.
+`wal -i /path/to/image` will apply the colors from an image to the terminal, sway, wofi, and  waybar. This script relies on [pywal](https://github.com/dylanaraps/pywal). It is recommended to install pywal in a Python virtual environment to avoid polluting the global Python installation. If you do, make sure you run `wal` while that environment is activated.
