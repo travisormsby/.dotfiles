@@ -57,12 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Show git branch name
-parse_git_branch() {
+git_branch() {
  git branch --show-current 2> /dev/null | sed 's/.*/[&]/'
 }
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[\033[01;91m\]\u@\h\[\033[00m\]:\[\033[1;93m\]\w\[\033[95m\]\$(parse_git_branch)\[\033[00m\]  "
+    userhost_c='\[\033[01;91m\]'
+    default_c='\[\033[00m\]'
+    pwd_c='\[\033[1;93m\]'
+    git_c='\[\033[95m\]'
+    PS1="╭──${debian_chroot:+($debian_chroot)}$userhost_c\u@\h$default_c:$pwd_c\w$git_c\$(git_branch)$default_c\n╰─"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -130,5 +134,5 @@ alias python=python3
 # Not supported in the "fish" shell.
 (cat ~/.cache/wal/sequences &)
 
-# pywal and beautifuldiscord are install in .local/bin
+# pywal is installed in .local/bin
 export PATH=$PATH:$HOME/.local/bin
