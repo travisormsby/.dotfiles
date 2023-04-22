@@ -58,15 +58,21 @@ fi
 
 # Show git branch name
 git_branch() {
- git branch --show-current 2> /dev/null | sed 's/.*/[&]/'
+ git branch --show-current 2> /dev/null | sed 's/.*/  &/'
 }
+
+# Show venv name
+venv() {
+ echo ${VIRTUAL_ENV##*/} | sed 's/.*\S.*/  &/'
+}
+
 
 if [ "$color_prompt" = yes ]; then
     userhost_c='\[\033[01;91m\]'
     default_c='\[\033[00m\]'
-    pwd_c='\[\033[1;93m\]'
-    git_c='\[\033[95m\]'
-    PS1="╭──${debian_chroot:+($debian_chroot)}$userhost_c\u@\h$default_c:$pwd_c\w$git_c\$(git_branch)$default_c\n╰─"
+    pwd_c='\[\033[01;93m\]'
+    env_c='\[\033[00;95m\]'
+    PS1="╭──$userhost_c\u@\h$default_c:$pwd_c\w$env_c\$(git_branch)\$(venv)$default_c\n╰─"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -136,3 +142,6 @@ alias python=python3
 
 # pywal is installed in .local/bin
 export PATH=$PATH:$HOME/.local/bin
+
+# Prevent venv name from automatically displaying in PS1 prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=true
