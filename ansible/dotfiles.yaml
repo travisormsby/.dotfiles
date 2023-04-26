@@ -4,7 +4,14 @@
   become: true
   tasks: 
 
-  - name: install packages
+  - name: install pip packages
+    ansible.builtin.pip:
+      name:
+        - pipenv
+        - pywal
+        
+  
+  - name: install additional packages
     ansible.builtin.package:
       name:
         - sway
