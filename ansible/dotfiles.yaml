@@ -13,13 +13,13 @@
       mode: 0644
       backup: true
     loop:
-      - src: ../.bashrc
+      - src: ../bashrc
         dest: "/home/{{ user }}/.bashrc"
-      - src: ../.config/foot/
+      - src: ../config/foot/
         dest: "/home/{{ user }}/.config/foot/"
-      - src: ../.config/sway/
+      - src: ../config/sway/
         dest: "/home/{{ user }}/.config/sway/"
-      - src: ../.config/waybar/
+      - src: ../config/waybar/
         dest: "/home/{{ user }}/.config/waybar/"
-      - src: ../.config/wofi/
+      - src: ../config/wofi/
         dest: "/home/{{ user }}/.config/wofi/"
