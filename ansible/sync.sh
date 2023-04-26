@@ -1,0 +1,1 @@
+ansible-playbook --ask-become-pass dotfiles.yaml -e "user=$1"
