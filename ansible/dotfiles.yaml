@@ -5,7 +5,7 @@
   tasks: 
 
   - name: install packages
-    package:
+    ansible.builtin.package:
       name:
         - sway
         - foot
