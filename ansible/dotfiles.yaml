@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: true
+  tasks: 
+
+  - name: copy dotfiles
+    copy: 
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+      mode: 0644
+      backup: true
+    loop:
+      - src: ../.bashrc
+        dest: "/home/{{ user }}/.bashrc"
+      - src: ../.config/foot/
+        dest: "/home/{{ user }}/.config/foot/"
+      - src: ../.config/sway/
+        dest: "/home/{{ user }}/.config/sway/"
+      - src: ../.config/waybar/
+        dest: "/home/{{ user }}/.config/waybar/"
+      - src: ../.config/wofi/
+        dest: "/home/{{ user }}/.config/wofi/"
