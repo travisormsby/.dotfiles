@@ -40,3 +40,5 @@
         dest: "/home/{{ user }}/.config/waybar/"
       - src: ../config/wofi/
         dest: "/home/{{ user }}/.config/wofi/"
+      - src: ../cache/wal/
+        dest: "/home/{{ user }}/.cache/wal"

@@ -1,0 +1,21 @@
+set $wallpaper /usr/share/backgrounds/sway/bubbles.png
+
+set $background #070806
+set $foreground #99c5c5
+
+set $color0 #070806
+set $color1 #AD571D
+set $color2 #9E5B21
+set $color3 #5F8A5D
+set $color4 #DB962C
+set $color5 #C2AA54
+set $color6 #1D738C
+set $color7 #99c5c5
+set $color8 #6b8989
+set $color9 #AD571D
+set $color10 #9E5B21
+set $color11 #5F8A5D
+set $color12 #DB962C
+set $color13 #C2AA54
+set $color14 #1D738C
+set $color15 #99c5c5
