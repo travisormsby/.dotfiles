@@ -133,7 +133,7 @@ fi
 
 # Command aliases
 alias python=python3
-alias venv='pipenv shell'
+alias activate='pipenv shell'
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
