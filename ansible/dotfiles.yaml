@@ -2,6 +2,8 @@
 
 - hosts: all
   become: true
+  vars:
+    user: "{{ user }}"
   tasks: 
 
   - name: install pip packages
@@ -36,9 +38,19 @@
         dest: "/home/{{ user }}/.config/foot/"
       - src: ../config/sway/
         dest: "/home/{{ user }}/.config/sway/"
-      - src: ../config/waybar/
-        dest: "/home/{{ user }}/.config/waybar/"
-      - src: ../config/wofi/
-        dest: "/home/{{ user }}/.config/wofi/"
+      - src: ../config/waybar/config
+        dest: "/home/{{ user }}/.config/waybar/config"
+      - src: ../config/wofi/config
+        dest: "/home/{{ user }}/.config/wofi/config"
       - src: ../cache/wal/
         dest: "/home/{{ user }}/.cache/wal"
+
+  - name: Apply css template files
+    ansible.builtin.template: 
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    loop:
+      - src: ../config/waybar/style.css.j2
+        dest: "/home/{{ user }}/.config/waybar/style.css"
+      - src: ../config/wofi/style.css.j2
+        dest: "/home/{{ user }}/.config/wofi/style.css"
