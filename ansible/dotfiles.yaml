@@ -7,7 +7,7 @@
   tasks: 
   
   - name: install packages
-    ansible.builtin.package:
+    ansible.builtin.apt:
       name:
         - firefox
         - foot
@@ -19,7 +19,6 @@
         - unzip
         - waybar
         - wofi
-        
       state: present
 
   - name: install pip packages
