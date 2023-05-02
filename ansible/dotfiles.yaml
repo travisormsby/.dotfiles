@@ -5,22 +5,28 @@
   vars:
     user: "{{ user }}"
   tasks: 
+  
+  - name: install packages
+    ansible.builtin.package:
+      name:
+        - firefox
+        - foot
+        - neofetch
+        - pavucontrol
+        - pipewire
+        - python3-pip
+        - sway
+        - unzip
+        - waybar
+        - wofi
+        
+      state: present
 
   - name: install pip packages
     ansible.builtin.pip:
       name:
         - pipenv
         - pywal
-        
-  
-  - name: install additional packages
-    ansible.builtin.package:
-      name:
-        - sway
-        - foot
-        - wofi
-        - waybar
-      state: present
 
 
   - name: copy dotfiles
