@@ -72,7 +72,7 @@ if [ "$color_prompt" = yes ]; then
     default_c='\[\033[00m\]'
     pwd_c='\[\033[01;93m\]'
     env_c='\[\033[00;95m\]'
-    PS1="╭──$userhost_c\u@\h$default_c:$pwd_c\w$env_c\$(git_branch)\$(venv)$default_c\n╰─"
+    PS1="\n╭──$userhost_c\u@\h$default_c:$pwd_c\w$env_c\$(git_branch)\$(venv)$default_c\n╰─"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
