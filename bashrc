@@ -148,7 +148,3 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Prevent venv name from automatically displaying in PS1 prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=true
-
-# Aliases for youtube-dl container commands
-alias ytdlp='podman run --rm -i -e PGID=0 -e PUID=0 -v "$(pwd)":/workdir:rw mikenye/youtube-dl -f 140 --yes-playlist --output "%(playlist_index)s %(title)s.%(ext)s"'
-alias ytdl='podman run --rm -i -e PGID=0 -e PUID=0 -v "$(pwd)":/workdir:rw mikenye/youtube-dl -f 140'
