@@ -148,3 +148,8 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Prevent venv name from automatically displaying in PS1 prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=true
+
+# cd into directory and automatically ll its contents
+function cdl {
+    builtin cd "$@" && ll
+    }
